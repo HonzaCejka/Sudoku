@@ -44,7 +44,17 @@ namespace Sudoku_0._1
                 for (int x = 0; x < length; x++)
                 {
 
-                    int y = random.Next(1, length + 1);                   
+                    int y = random.Next(1, length + 1);
+                    if (y!=0)
+                    {
+                        for (int z = 1; z < i; z++)
+                        {
+                            if (y==int.Parse(board.GetValue(i - z,x).ToString()))
+                            {
+                                //jako motam se v myslenkach a nevim co sem napsat pls pomoc nekdo
+                            }
+                        }
+                    }
                     if (Line.Contains(y))
                     {
                         board[i, x] = y;
