@@ -11,32 +11,40 @@ namespace Sudoku_0._1
 {
     internal class Generate
     {
-        Random random = new Random();
-        List<int> Line = new List<int>();           
-        public int[,] board = new int[9, 9];
-        public string result;
         public int length;
+        public string result;
+        Random random = new Random();
+        List<int> Line = new List<int>();
+        public int[,] board;
+        
+        
         public Generate()
         {
+            board = new int[length,length];
             result = "";        
+        }
+        public void GenLength(int Length)
+        {
+            for (int i = 1; i < Length + 1; i++)
+            {
+                Line.Add(i);
+            }
         }
         public void SetLength(int Length)
         {           
             length = Length;
-            for (int i = 1; i < Length+1; i++)
-            {
-                Line.Add(i);
-            }
-            
+            GenLength(length);
+            board = new int[length,length];            
         }
+
         public void GenBoard1()
         {
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < length; i++)
             {
-                for (int x = 0; x < 9; x++)
+                for (int x = 0; x < length; x++)
                 {
 
-                    int y = random.Next(1, 10);
+                    int y = random.Next(1, length + 1);                   
                     if (Line.Contains(y))
                     {
                         board[i, x] = y;
@@ -48,17 +56,17 @@ namespace Sudoku_0._1
                         x--;
                     }
                 }
-                SetLength(length);
+                GenLength(length);
 
             }
         }
         public void ShowBoard()
         {
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < length; i++)
             {
-                for (int x = 0; x < 9; x++)
+                for (int x = 0; x < length; x++)
                 {
-                    result += board.GetValue(x, i).ToString();
+                    result += board.GetValue(i,x).ToString();
                 }
             }
         }

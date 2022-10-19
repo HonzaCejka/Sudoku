@@ -28,11 +28,11 @@ namespace Sudoku_0._1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            generate.SetLength(9);
+            generate.SetLength(6);
             generate.GenBoard1();
-            generate.ShowBoard();
+            generate.ShowBoard();           
             TextBlock.Text = generate.result;
-
+            
         }
     }
 }
