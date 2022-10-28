@@ -11,6 +11,7 @@ namespace Sudoku_0._1
 {
     internal class Generate
     {
+        private bool repeate;
         public int length;
         public string result;
         Random random = new Random();
@@ -45,25 +46,34 @@ namespace Sudoku_0._1
                 {
 
                     int y = random.Next(1, length + 1);
-                    if (y!=0)
+                    repeate = true;
+                    if (y != 0)
                     {
-                        for (int z = 1; z < i; z++)
+                        for (int z = 0; z < i; z++)
                         {
-                            if (y==int.Parse(board.GetValue(i - z,x).ToString()))
+                            if (y == int.Parse(board.GetValue(i - z, x).ToString()))
                             {
-                                //jako motam se v myslenkach a nevim co sem napsat pls pomoc nekdo
+                                x--;
+                                repeate = false;
                             }
-                        }
+                            else
+                            {
+                                repeate = true;
+                            }
+                        }                        
                     }
-                    if (Line.Contains(y))
+                    if (repeate == true)
                     {
-                        board[i, x] = y;
-                        Line.Remove(y);
+                        if (Line.Contains(y))
+                        {
+                            board[i, x] = y;
+                            Line.Remove(y);
 
-                    }
-                    else
-                    {
-                        x--;
+                        }
+                        else
+                        {
+                            x--;
+                        }
                     }
                 }
                 GenLength(length);
