@@ -20,7 +20,7 @@ namespace Sudoku_0._1
     /// </summary>
     public partial class MainWindow : Window
     {
-        Generate generate = new Generate();
+        
         public MainWindow()
         {
             InitializeComponent();   
@@ -28,10 +28,7 @@ namespace Sudoku_0._1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            generate.SetLength(6);
-            generate.GenBoard1();
-            generate.ShowBoard();           
-            TextBlock.Text = generate.result;
+            
             
         }
     }

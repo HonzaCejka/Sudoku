@@ -11,7 +11,7 @@ namespace Sudoku_0._1
 {
     internal class Generate
     {
-        private bool repeate;
+        private bool repete;
         public int length;
         public string result;
         Random random = new Random();
@@ -46,23 +46,23 @@ namespace Sudoku_0._1
                 {
 
                     int y = random.Next(1, length + 1);
-                    repeate = true;
+                    repete = true;
                     if (y != 0)
                     {
                         for (int z = 0; z < i; z++)
                         {
-                            if (y == int.Parse(board.GetValue(i - z, x).ToString()))
+                            if (y == int.Parse(board[i-z,x].ToString()))
                             {
                                 x--;
-                                repeate = false;
+                                repete = false;
                             }
                             else
                             {
-                                repeate = true;
+                                repete = true;
                             }
                         }                        
                     }
-                    if (repeate == true)
+                    if (repete == true)
                     {
                         if (Line.Contains(y))
                         {
@@ -77,7 +77,7 @@ namespace Sudoku_0._1
                     }
                 }
                 GenLength(length);
-
+                // čau grundzo jak se máš? ja se bojim programovani protoze umim hovno :( pomooooc
             }
         }
         public void ShowBoard()
@@ -86,7 +86,7 @@ namespace Sudoku_0._1
             {
                 for (int x = 0; x < length; x++)
                 {
-                    result += board.GetValue(i,x).ToString();
+                    result += board[i,x].ToString();
                 }
             }
         }
