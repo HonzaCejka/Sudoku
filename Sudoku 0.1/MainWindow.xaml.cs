@@ -23,13 +23,29 @@ namespace Sudoku_0._1
         
         public MainWindow()
         {
-            InitializeComponent();   
+            InitializeComponent();
+            Gen();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Gen()
         {
+            TextBlock[,] Pole = new TextBlock[9,9];
+            Array.Fill(Pole, new TextBlock());
             
-            
+            for (int x = 0; x < 9; x++)
+            {
+                for (int y = 0; y < 9; y++)
+                {
+                    Main.Children.Add(Pole[x,y]);
+                    Grid.SetColumn(Pole[x,y],x);
+                    Grid.SetRow(Pole[x,y],y);
+                    Pole[x, y].Width = 23;
+                    Pole[x,y].Height = 23;
+                    Pole[x, y].Text = "lolik";
+                }
+                
+            }
         }
+
     }
 }
