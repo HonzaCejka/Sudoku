@@ -21,22 +21,30 @@ namespace Sudoku_0._1
     public partial class MainWindow : Window
     {
         TextBlock[,] PoleAll = new TextBlock[9, 9];
+        Contnt cont = new Contnt();
         public MainWindow()
         {
             InitializeComponent();
             Gen();
-            lol();
+            cont.build();
+            GenContn();
         }
 
         public void Gen()
         {
             TextBlock[] Pole = new TextBlock[9];
+            
             for (int y = 0; y < 9; y++)
             {
                 for (int x = 0; x < 9; x++)
                 {                   
                     Pole[x] = new TextBlock();
+                    Rectangle rect = new Rectangle();
+                    rect.Stroke = new SolidColorBrush(Colors.White);
+                    Main.Children.Add(rect);
                     Main.Children.Add(Pole[x]);
+                    Grid.SetColumn(rect, x);
+                    Grid.SetRow(rect, y);
                     Grid.SetColumn(Pole[x], x);
                     Grid.SetRow(Pole[x], y);
                     PoleAll[x,y]= Pole[x];
@@ -49,10 +57,16 @@ namespace Sudoku_0._1
             }
 
         }
-
-        public void lol()
+        public void GenContn()
         {
-            PoleAll[0, 1].Text = "0";
+            for (int y = 0; y < 9; y++)
+            {
+                for (int x = 0; x < 9; x++)
+                {
+                    PoleAll[y, x].Text = cont.Contall[x, y];
+                }
+            }
         }
+        
     }
 }

@@ -18,7 +18,7 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Name="Main" Grid.Column="1" Grid.Row="1" ShowGridLines="True">
+        <Grid Name="Main" Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
