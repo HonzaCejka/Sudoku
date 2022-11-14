@@ -20,32 +20,39 @@ namespace Sudoku_0._1
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        TextBlock[,] PoleAll = new TextBlock[9, 9];
         public MainWindow()
         {
             InitializeComponent();
             Gen();
+            lol();
         }
 
         public void Gen()
         {
-            TextBlock[,] Pole = new TextBlock[9,9];
-            Array.Fill(Pole, new TextBlock());
-            
-            for (int x = 0; x < 9; x++)
+            TextBlock[] Pole = new TextBlock[9];
+            for (int y = 0; y < 9; y++)
             {
-                for (int y = 0; y < 9; y++)
-                {
-                    Main.Children.Add(Pole[x,y]);
-                    Grid.SetColumn(Pole[x,y],x);
-                    Grid.SetRow(Pole[x,y],y);
-                    Pole[x, y].Width = 23;
-                    Pole[x,y].Height = 23;
-                    Pole[x, y].Text = "lolik";
+                for (int x = 0; x < 9; x++)
+                {                   
+                    Pole[x] = new TextBlock();
+                    Main.Children.Add(Pole[x]);
+                    Grid.SetColumn(Pole[x], x);
+                    Grid.SetRow(Pole[x], y);
+                    PoleAll[x,y]= Pole[x];
+                    Pole[x].Foreground = Brushes.White;
+                    Pole[x].HorizontalAlignment = HorizontalAlignment.Center;
+                    Pole[x].VerticalAlignment = VerticalAlignment.Center;
+                    Pole[x].FontSize = 36;
+                                    
                 }
-                
             }
+
         }
 
+        public void lol()
+        {
+            PoleAll[0, 1].Text = "0";
+        }
     }
 }
