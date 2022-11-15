@@ -37,25 +37,51 @@ namespace Sudoku_0._1
             for (int y = 0; y < 9; y++)
             {
                 for (int x = 0; x < 9; x++)
-                {                   
-                    Pole[x] = new TextBlock();
+                {
+                    GridLines();
+                    PickerLines();
                     Rectangle rect = new Rectangle();
                     rect.Stroke = new SolidColorBrush(Colors.White);
-                    Main.Children.Add(rect);
-                    Main.Children.Add(Pole[x]);
-                    Grid.SetColumn(rect, x);
-                    Grid.SetRow(rect, y);
-                    Grid.SetColumn(Pole[x], x);
-                    Grid.SetRow(Pole[x], y);
-                    PoleAll[x,y]= Pole[x];
+                    rect.StrokeThickness = 1;
+                    Pole[x] = new TextBlock();                                                                               
                     Pole[x].Foreground = Brushes.White;
                     Pole[x].HorizontalAlignment = HorizontalAlignment.Center;
                     Pole[x].VerticalAlignment = VerticalAlignment.Center;
-                    Pole[x].FontSize = 36;
-                                    
+                    Pole[x].FontSize = 36;                    
+                    Main.Children.Add(rect);
+                    Main.Children.Add(Pole[x]);                    
+                    Grid.SetColumn(rect, x);
+                    Grid.SetRow(rect, y);
+                    Grid.SetColumn(Pole[x], x);
+                    Grid.SetRow(Pole[x], y);                   
+                    PoleAll[x, y] = Pole[x];
                 }
             }
 
+        }
+        public void GridLines()
+        {
+            Rectangle bigerRect = new Rectangle();
+            bigerRect.Stroke = new SolidColorBrush(Colors.White);
+            bigerRect.StrokeThickness = 3;
+            BigGrid.Children.Add(bigerRect);
+            Grid.SetColumn(bigerRect,1);
+            Grid.SetRow(bigerRect,1);
+
+            for (int r = 0; r < 9; r += 3)
+            {
+                for (int i = 0; i < 9; i += 3)
+                {
+                    Rectangle bigRect = new Rectangle();
+                    bigRect.Stroke = new SolidColorBrush(Colors.White);
+                    bigRect.StrokeThickness = 2;                   
+                    Main.Children.Add(bigRect);
+                    Grid.SetColumn(bigRect, i);
+                    Grid.SetRow(bigRect, r);
+                    Grid.SetColumnSpan(bigRect, 3);
+                    Grid.SetRowSpan(bigRect, 3);
+                }
+            }
         }
         public void GenContn()
         {
@@ -67,6 +93,18 @@ namespace Sudoku_0._1
                 }
             }
         }
+        public void PickerLines()
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                Rectangle border = new Rectangle();
+                border.Stroke = new SolidColorBrush(Colors.White);
+                Picker.Children.Add(border);
+                Grid.SetColumn(border, i);
+                Grid.SetRow(border,i);
+            }
+        }
+
         
     }
 }
