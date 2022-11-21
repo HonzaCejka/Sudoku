@@ -19,7 +19,7 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Name="Main" Grid.Column="1" Margin="0,70,0,0" Grid.RowSpan="2">
+        <Grid Name="Main" Grid.Column="1" Height="500" VerticalAlignment="Top" HorizontalAlignment="Center" Width="500" Margin="0,35,0,0" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -55,15 +55,15 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Name="num1" FontSize="35" Grid.Column="0" TextAlignment="Center" TextWrapping="Wrap" Text="1" Foreground="White" Margin="10,0,14,0"/>
-            <TextBlock Name="num2" FontSize="35" Grid.Column="1" TextAlignment="Center" TextWrapping="Wrap" Text="2" Foreground="White" Margin="10,0,14,0"/>
-            <TextBlock Name="num3" FontSize="35" Grid.Column="2" TextAlignment="Center" TextWrapping="Wrap" Text="3" Foreground="White" Margin="10,0,14,0"/>
-            <TextBlock Name="num4" FontSize="35" Grid.Column="3" TextAlignment="Center" TextWrapping="Wrap" Text="4" Foreground="White" Margin="10,0,14,0"/>
-            <TextBlock Name="num5" FontSize="35" Grid.Column="4" TextAlignment="Center" TextWrapping="Wrap" Text="5" Foreground="White" Margin="10,0,14,0"/>
-            <TextBlock Name="num6" FontSize="35" Grid.Column="5" TextAlignment="Center" TextWrapping="Wrap" Text="6" Foreground="White" Margin="10,0,14,0"/>
-            <TextBlock Name="num7" FontSize="35" Grid.Column="6" TextAlignment="Center" TextWrapping="Wrap" Text="7" Foreground="White" Margin="10,0,14,0"/>
-            <TextBlock Name="num8" FontSize="35" Grid.Column="7" TextAlignment="Center" TextWrapping="Wrap" Text="8" Foreground="White" Margin="10,0,14,0"/>
-            <TextBlock Name="num9" FontSize="35" Grid.Column="8" TextAlignment="Center" TextWrapping="Wrap" Text="9" Foreground="White" Margin="10,0,14,0"/>
+            <TextBlock Name="num1" FontSize="35" Grid.Column="0" TextAlignment="Center" TextWrapping="Wrap" Text="1" Foreground="White" Margin="10,0,14,0" Tag="1"  MouseDown="num1_MouseDown"/>
+            <TextBlock Name="num2" FontSize="35" Grid.Column="1" TextAlignment="Center" TextWrapping="Wrap" Text="2" Foreground="White" Margin="10,0,14,0" Tag="2" MouseDown="num1_MouseDown"/>
+            <TextBlock Name="num3" FontSize="35" Grid.Column="2" TextAlignment="Center" TextWrapping="Wrap" Text="3" Foreground="White" Margin="10,0,14,0" Tag="3" MouseDown="num1_MouseDown"/>
+            <TextBlock Name="num4" FontSize="35" Grid.Column="3" TextAlignment="Center" TextWrapping="Wrap" Text="4" Foreground="White" Margin="10,0,14,0" Tag="4" MouseDown="num1_MouseDown"/>
+            <TextBlock Name="num5" FontSize="35" Grid.Column="4" TextAlignment="Center" TextWrapping="Wrap" Text="5" Foreground="White" Margin="10,0,14,0" Tag="5" MouseDown="num1_MouseDown"/>
+            <TextBlock Name="num6" FontSize="35" Grid.Column="5" TextAlignment="Center" TextWrapping="Wrap" Text="6" Foreground="White" Margin="10,0,14,0" Tag="6" MouseDown="num1_MouseDown"/>
+            <TextBlock Name="num7" FontSize="35" Grid.Column="6" TextAlignment="Center" TextWrapping="Wrap" Text="7" Foreground="White" Margin="10,0,14,0" Tag="7" MouseDown="num1_MouseDown"/>
+            <TextBlock Name="num8" FontSize="35" Grid.Column="7" TextAlignment="Center" TextWrapping="Wrap" Text="8" Foreground="White" Margin="10,0,14,0" Tag="8" MouseDown="num1_MouseDown"/>
+            <TextBlock Name="num9" FontSize="35" Grid.Column="8" TextAlignment="Center" TextWrapping="Wrap" Text="9" Foreground="White" Margin="10,0,14,0" Tag="9" MouseDown="num1_MouseDown"/>
         </Grid>
 
 

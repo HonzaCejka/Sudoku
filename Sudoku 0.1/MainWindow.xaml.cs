@@ -20,6 +20,8 @@ namespace Sudoku_0._1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int pick = 1;
+        Rectangle border;
         TextBlock[,] PoleAll = new TextBlock[9, 9];
         Contnt cont = new Contnt();
         public MainWindow()
@@ -28,6 +30,7 @@ namespace Sudoku_0._1
             Gen();
             cont.build();
             GenContn();
+            picked();
         }
 
         public void Gen()
@@ -43,10 +46,15 @@ namespace Sudoku_0._1
                     Rectangle rect = new Rectangle();
                     rect.Stroke = new SolidColorBrush(Colors.White);
                     rect.StrokeThickness = 1;
-                    Pole[x] = new TextBlock();                                                                               
-                    Pole[x].Foreground = Brushes.White;
+                    Pole[x] = new TextBlock();
+                    Pole[x].MouseDown += GridMouse_Down;
+                    Pole[x].Foreground = Brushes.White;                    
+                    Pole[x].Width = 55;
+                    Pole[x].Height = 55;
+                    Pole[x].Tag = new int[2]{x,y};
                     Pole[x].HorizontalAlignment = HorizontalAlignment.Center;
                     Pole[x].VerticalAlignment = VerticalAlignment.Center;
+                    Pole[x].TextAlignment = TextAlignment.Center;
                     Pole[x].FontSize = 36;                    
                     Main.Children.Add(rect);
                     Main.Children.Add(Pole[x]);                    
@@ -64,9 +72,11 @@ namespace Sudoku_0._1
             Rectangle bigerRect = new Rectangle();
             bigerRect.Stroke = new SolidColorBrush(Colors.White);
             bigerRect.StrokeThickness = 3;
-            BigGrid.Children.Add(bigerRect);
-            Grid.SetColumn(bigerRect,1);
-            Grid.SetRow(bigerRect,1);
+            Main.Children.Add(bigerRect);
+            Grid.SetColumn(bigerRect, 0);
+            Grid.SetRow(bigerRect, 0);
+            Grid.SetColumnSpan(bigerRect,9);
+            Grid.SetRowSpan(bigerRect,9);
 
             for (int r = 0; r < 9; r += 3)
             {
@@ -89,22 +99,56 @@ namespace Sudoku_0._1
             {
                 for (int x = 0; x < 9; x++)
                 {
-                    PoleAll[y, x].Text = cont.Contall[x, y];
+                    PoleAll[y, x].Text = cont.Contall[x, y];                    
                 }
             }
+            
         }
+       
         public void PickerLines()
         {
             for (int i = 0; i < 9; i++)
             {
-                Rectangle border = new Rectangle();
+                border = new Rectangle();
                 border.Stroke = new SolidColorBrush(Colors.White);
                 Picker.Children.Add(border);
                 Grid.SetColumn(border, i);
                 Grid.SetRow(border,i);
             }
         }
+        public void picked()
+        {
+            border.Stroke = new SolidColorBrush(Colors.Aqua);
+            border.Fill = new SolidColorBrush(Colors.Aqua);
+            border.StrokeThickness = 2;
+            Grid.SetZIndex(border, -1);
+            Grid.SetColumn(border, pick - 1);
+            Grid.SetRow(border, pick - 1);
+        }
+        private void num1_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+            TextBlock tb = sender as TextBlock;                                             
+            pick = int.Parse(tb.Tag.ToString());
+            picked();
 
-        
+        }
+       
+        private void GridMouse_Down(object sender, MouseButtonEventArgs e)
+        {
+            
+            TextBlock ceman = sender as TextBlock;
+            int[] exos = ceman.Tag as int[];
+            int x = exos[0];
+            int y = exos[1];
+            if (cont.Contall[y,x] == " ")
+            {
+                PoleAll[x, y].Text = pick.ToString();
+            }
+            else
+            {
+               
+            }
+        }
     }
 }

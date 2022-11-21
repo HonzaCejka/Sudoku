@@ -11,6 +11,7 @@ namespace Sudoku_0._1
     {
         public string con { get; set; }
         public String[,] Contall; 
+        
 
         public Contnt()
         {
