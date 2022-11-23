@@ -20,10 +20,11 @@ namespace Sudoku_0._1
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
         
-        
-        Contnt cont = new Contnt();
         GenBoard bord = new GenBoard(9);
+        Contnt cont = new Contnt(9);
         public MainWindow()
         {           
             InitializeComponent();            

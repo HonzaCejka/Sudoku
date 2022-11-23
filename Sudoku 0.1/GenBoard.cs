@@ -29,7 +29,8 @@ namespace Sudoku_0._1
         public TextBlock[,] PoleAll { get; set; }
         public TextBlock[] Pole { get; set; }
         public Rectangle border { get; set; }
-        Contnt cont = new Contnt();
+
+        Contnt cont = new Contnt(9);
         MainWindow win = new MainWindow();
 
         public GenBoard(int Dificulty)
