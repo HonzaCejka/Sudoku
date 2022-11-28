@@ -22,19 +22,25 @@ namespace Sudoku_0._1
     {
 
         int Pick = 1;
-        int Dif = 9;
-        public TextBlock[,] PoleAll = new TextBlock[9,9];
-        public TextBlock[] Pole = new TextBlock[9];
+        public int Dif = 9;
+        public TextBlock[,] PoleAll;
+        public TextBlock[] Pole;
         public Rectangle border;
-        
-        Contnt cont = new Contnt(9);
+
+        Checko check;
+        Contnt cont;
         public MainWindow()
-        {           
+        {
+            cont = new Contnt(Dif);
+            Pole = new TextBlock[Dif];
+            PoleAll = new TextBlock[Dif,Dif];
+            check = new Checko(Dif,cont.Contall);
             InitializeComponent();            
             cont.build();
             gen();   
             GenContn();
             picked();
+            check.GenCheck();
         }
         
        
@@ -72,9 +78,9 @@ namespace Sudoku_0._1
         }
         public void GenContn()
         {
-            for (int y = 0; y < 9; y++)
+            for (int y = 0; y < Dif; y++)
             {
-                for (int x = 0; x < 9; x++)
+                for (int x = 0; x < Dif; x++)
                 {
                     PoleAll[y, x].Text = cont.Contall[x, y];
                 }
@@ -127,6 +133,7 @@ namespace Sudoku_0._1
             int y = exos[1];
             if (cont.Contall[y, x] == " ")
             {
+                cont.Contall[y,x] = Pick.ToString();
                 PoleAll[x, y].Text = Pick.ToString();
             }
             else
