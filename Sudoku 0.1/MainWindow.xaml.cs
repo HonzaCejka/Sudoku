@@ -26,21 +26,25 @@ namespace Sudoku_0._1
         public TextBlock[,] PoleAll;
         public TextBlock[] Pole;
         public Rectangle border;
+        int[,] board;
 
-        Checko check;
+        Solver solve;
         Contnt cont;
         public MainWindow()
         {
             cont = new Contnt(Dif);
             Pole = new TextBlock[Dif];
             PoleAll = new TextBlock[Dif,Dif];
-            check = new Checko(Dif,cont.Contall);
+            solve = new Solver(Dif,cont.con);
             InitializeComponent();            
             cont.build();
+            solve.convert();
             gen();   
             GenContn();
             picked();
-            check.GenCheck();
+            board=solve.board;
+            solve.solveBoard(board);
+            
         }
         
        
@@ -135,6 +139,14 @@ namespace Sudoku_0._1
             {
                 cont.Contall[y,x] = Pick.ToString();
                 PoleAll[x, y].Text = Pick.ToString();
+                if (solve.FinalBoard[y,x] == Pick)
+                {
+                    PoleAll[x,y].Foreground = Brushes.Aqua;
+                }
+                else
+                {
+                    PoleAll[x,y].Foreground = Brushes.Red;
+                }
             }
             else
             {
