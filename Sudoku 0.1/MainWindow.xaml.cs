@@ -22,6 +22,7 @@ namespace Sudoku_0._1
     {
 
         int Pick = 1;
+        int Wrong = 0;
         public int Dif = 9;
         public TextBlock[,] PoleAll;
         public TextBlock[] Pole;
@@ -136,16 +137,26 @@ namespace Sudoku_0._1
             int x = exos[0];
             int y = exos[1];
             if (cont.Contall[y, x] == " ")
-            {
-                cont.Contall[y,x] = Pick.ToString();
+            {                
                 PoleAll[x, y].Text = Pick.ToString();
                 if (solve.FinalBoard[y,x] == Pick)
                 {
                     PoleAll[x,y].Foreground = Brushes.Aqua;
+                    //PoleAll[x, y].Background = do transparent;
+                    cont.Contall[y, x] = Pick.ToString();
                 }
                 else
                 {
                     PoleAll[x,y].Foreground = Brushes.Red;
+                    PoleAll[x, y].Background = Brushes.Pink;
+                    if (Wrong == 2)
+                    {
+                        MessageBox.Show("Do Game Over");
+                    }
+                    else
+                    {
+                        Wrong++;
+                    }
                 }
             }
             else
