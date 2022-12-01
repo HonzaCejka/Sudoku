@@ -14,9 +14,12 @@ namespace Sudoku_0._1
         public String[,] Contall;    
         double DoubleDifNaDruhou;
         int DifNaDruhou;
+
+        GetTxt gen = new GetTxt();
         public Contnt(int dif)
         {
-            con = "2;4;0;0;0;6;0;5;01;0;0;5;0;0;0;0;60;0;0;0;0;0;7;1;40;0;0;0;6;7;1;3;00;1;0;0;5;0;0;6;00;3;5;2;1;0;0;0;09;8;2;0;0;0;0;0;05;0;0;0;0;1;0;0;80;6;0;8;0;0;0;2;7";
+            gen.GetRandString();            
+            con = gen.line;
             Contall = new string[dif, dif];
             Dif = dif;
             DoubleDifNaDruhou = Math.Pow(dif, 2);            

@@ -14,6 +14,7 @@ namespace Sudoku_0._1
         public int[,] board { get; set; }
         public string[,] Cont { get; set; }
         public string Con { get; set; }
+        public bool done { get; set; }
         public Solver(int length, string con)
         {
             Length = length;                        
@@ -25,11 +26,12 @@ namespace Sudoku_0._1
             if (solveBoard(board))
             {
                 MessageBox.Show("Solved");
-                
+                done = true;
             }
             else
             {
                 MessageBox.Show("Nejde");
+                done=false;
             }
         }
         public void build()

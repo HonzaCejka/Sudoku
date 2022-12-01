@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="erase.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="erase.png" />
+  </ItemGroup>
+
 </Project>

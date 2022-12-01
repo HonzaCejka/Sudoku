@@ -5,67 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sudoku_0._1"
         mc:Ignorable="d"
+        WindowState="Maximized"
         Title="MainWindow" Height="720" Width="1080">
-    <Grid Name="BigGrid" Background="#FF333333" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="70*"/>
-            <RowDefinition Height="484*"/>
-            <RowDefinition Height="23*"/>
-            <RowDefinition Height="57*"/>
-            <RowDefinition Height="70*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid Name="Main" Grid.Column="1" Height="500" VerticalAlignment="Top" HorizontalAlignment="Center" Width="500" Margin="0,35,0,0" Grid.RowSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
+    <Grid Name="WindowGrid" Background="#FF333333" >
+        <Grid Name="Main">
+            <TextBlock x:Name="Title" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Sudoku" VerticalAlignment="Top" Height="145" Width="480" FontSize="72" Foreground="White" TextAlignment="Center" Margin="0,131,0,0"/>
+            <Border  x:Name="Continue" CornerRadius="15" HorizontalAlignment="Center" Margin="0,0,0,0" Height="58" Width="214" BorderThickness="2" BorderBrush="White" MouseDown="Continue_MouseDown">
+                <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Continue" />
+            </Border>
+            <Border Cursor="Hand" x:Name="NewGame" CornerRadius="15" HorizontalAlignment="Center" Margin="0,257,0,73" BorderThickness="2" Height="58" Width="214" Background="#FF2B5B9C" BorderBrush="White" MouseDown="NewGame_MouseDown">
+                <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="New Game" />
+            </Border>
+            <Border Cursor="Hand" x:Name="MakeBoard" CornerRadius="15" HorizontalAlignment="Center" Margin="0,507,0,139" BorderThickness="2" Height="58" Width="214" Background="#FF2B5B9C" BorderBrush="White" MouseDown="MakeBoard_MouseDown">
+                <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Make Board" />
+            </Border>
         </Grid>
-        <Grid Name="Picker" Grid.Column="1" Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Name="num1" FontSize="35" Grid.Column="0" TextAlignment="Center" TextWrapping="Wrap" Text="1" Foreground="White" Margin="10,0,14,0" Tag="1"  MouseDown="num1_MouseDown"/>
-            <TextBlock Name="num2" FontSize="35" Grid.Column="1" TextAlignment="Center" TextWrapping="Wrap" Text="2" Foreground="White" Margin="10,0,14,0" Tag="2" MouseDown="num1_MouseDown"/>
-            <TextBlock Name="num3" FontSize="35" Grid.Column="2" TextAlignment="Center" TextWrapping="Wrap" Text="3" Foreground="White" Margin="10,0,14,0" Tag="3" MouseDown="num1_MouseDown"/>
-            <TextBlock Name="num4" FontSize="35" Grid.Column="3" TextAlignment="Center" TextWrapping="Wrap" Text="4" Foreground="White" Margin="10,0,14,0" Tag="4" MouseDown="num1_MouseDown"/>
-            <TextBlock Name="num5" FontSize="35" Grid.Column="4" TextAlignment="Center" TextWrapping="Wrap" Text="5" Foreground="White" Margin="10,0,14,0" Tag="5" MouseDown="num1_MouseDown"/>
-            <TextBlock Name="num6" FontSize="35" Grid.Column="5" TextAlignment="Center" TextWrapping="Wrap" Text="6" Foreground="White" Margin="10,0,14,0" Tag="6" MouseDown="num1_MouseDown"/>
-            <TextBlock Name="num7" FontSize="35" Grid.Column="6" TextAlignment="Center" TextWrapping="Wrap" Text="7" Foreground="White" Margin="10,0,14,0" Tag="7" MouseDown="num1_MouseDown"/>
-            <TextBlock Name="num8" FontSize="35" Grid.Column="7" TextAlignment="Center" TextWrapping="Wrap" Text="8" Foreground="White" Margin="10,0,14,0" Tag="8" MouseDown="num1_MouseDown"/>
-            <TextBlock Name="num9" FontSize="35" Grid.Column="8" TextAlignment="Center" TextWrapping="Wrap" Text="9" Foreground="White" Margin="10,0,14,0" Tag="9" MouseDown="num1_MouseDown"/>
-        </Grid>
-
-
     </Grid>
 </Window>
