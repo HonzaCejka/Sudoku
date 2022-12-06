@@ -9,7 +9,7 @@ namespace Sudoku_0._1
 {
     internal class GetTxt
     {
-        string[] lines = System.IO.File.ReadAllLines(@"Save.txt");
+        string[] lines = System.IO.File.ReadAllLines(@"Strings.txt");
         public string line { get; set; }
         int length;
         int index;

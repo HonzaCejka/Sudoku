@@ -30,6 +30,7 @@ namespace Sudoku_0._1
         int[,] board;
         string BoardString;
         public static System.Windows.Media.SolidColorBrush Transparent { get; }
+        SolidColorBrush ColBrush = new SolidColorBrush(Color.FromArgb(255, 43, 91, 156));
         Solver solver;
 
         
@@ -152,8 +153,8 @@ namespace Sudoku_0._1
         }
         public void picked()
         {
-            border.Stroke = new SolidColorBrush(Colors.Aqua);
-            border.Fill = new SolidColorBrush(Colors.Aqua);
+            border.Stroke = ColBrush;
+            border.Fill = ColBrush;
             border.StrokeThickness = 2;
             Grid.SetZIndex(border, -1);
             Grid.SetColumn(border, Pick - 1);
@@ -201,8 +202,99 @@ namespace Sudoku_0._1
         }
         public static async Task ExampleAsync(string EndString)
         {            
-                using StreamWriter file = new("Save.txt", append: true);
+                using StreamWriter file = new("Strings.txt", append: true);
                 await file.WriteLineAsync(EndString);                            
         }
+        private void Maker_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.D1:
+                    Pick = 1;
+                    picked();
+                    break;
+                case Key.D2:
+                    Pick = 2;
+                    picked();
+                    break;
+                case Key.D3:
+                    Pick = 3;
+                    picked();
+                    break;
+                case Key.D4:
+                    Pick = 4;
+                    picked();
+                    break;
+                case Key.D5:
+                    Pick = 5;
+                    picked();
+                    break;
+                case Key.D6:
+                    Pick = 6;
+                    picked();
+                    break;
+                case Key.D7:
+                    Pick = 7;
+                    picked();
+                    break;
+                case Key.D8:
+                    Pick = 8;
+                    picked();
+                    break;
+                case Key.D9:
+                    Pick = 9;
+                    picked();
+                    break;
+                case Key.D0:
+                    Pick = 10;
+                    picked();
+                    break;
+                case Key.NumPad1:
+                    Pick = 1;
+                    picked();
+                    break;
+                case Key.NumPad2:
+                    Pick = 2;
+                    picked();
+                    break;
+                case Key.NumPad3:
+                    Pick = 3;
+                    picked();
+                    break;
+                case Key.NumPad4:
+                    Pick = 4;
+                    picked();
+                    break;
+                case Key.NumPad5:
+                    Pick = 5;
+                    picked();
+                    break;
+                case Key.NumPad6:
+                    Pick = 6;
+                    picked();
+                    break;
+                case Key.NumPad7:
+                    Pick = 7;
+                    picked();
+                    break;
+                case Key.NumPad8:
+                    Pick = 8;
+                    picked();
+                    break;
+                case Key.NumPad9:
+                    Pick = 9;
+                    picked();
+                    break;
+                case Key.NumPad0:
+                    Pick = 10;
+                    picked();
+                    break;
+            }
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            KeyDown += new KeyEventHandler(Maker_KeyDown);
+        }
+      
     }
 }

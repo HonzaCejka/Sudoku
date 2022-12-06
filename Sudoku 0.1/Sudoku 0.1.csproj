@@ -10,10 +10,16 @@
 
   <ItemGroup>
     <None Remove="erase.png" />
+    <None Remove="pause.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="erase.png" />
+    <Resource Include="pause.png" />
   </ItemGroup>
 
 </Project>

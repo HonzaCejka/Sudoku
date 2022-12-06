@@ -1,0 +1,41 @@
+﻿<Window x:Class="Sudoku_0._1.win"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sudoku_0._1"
+        mc:Ignorable="d"
+        Title="win" Height="500" Width="500" Background="#FF333333" Closed="Window_Closed">
+    <Grid>
+        <Grid Name="Main">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="115*"/>
+                <ColumnDefinition Width="266*"/>
+                <ColumnDefinition Width="119*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="Title" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="90" Width="480" FontSize="72" Foreground="White" TextAlignment="Center" Grid.Row="2" Grid.Column="1"><Run Text="You Win"/><LineBreak/><Run/></TextBlock>
+            <TextBlock x:Name="FinalTime" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="43" Width="480" FontSize="36" Foreground="White" TextAlignment="Center" Grid.Row="4" Grid.Column="1"><Run Text="Time: 00:00"/><LineBreak/><Run/></TextBlock>
+            <Border Cursor="Hand" CornerRadius="15" HorizontalAlignment="Center" Width="214" BorderThickness="2" BorderBrush="White" Background="#FF2B5B9C" Grid.Row="8" Grid.Column="1">
+                <TextBlock x:Name="NewGame" Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="New Game" MouseDown="NewGame_MouseDown" />
+            </Border>
+            <Border Cursor="Hand" CornerRadius="15" HorizontalAlignment="Center" Margin="0,18,0,0" BorderThickness="2" Width="214" Background="#FF2B5B9C" BorderBrush="White" Grid.Row="9" MouseDown="Main_MouseDown" Grid.Column="1"  Grid.RowSpan="2" >
+                <TextBlock x:Name="Quit" Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" ><Run Language="cs-cz" Text="Main"/></TextBlock>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

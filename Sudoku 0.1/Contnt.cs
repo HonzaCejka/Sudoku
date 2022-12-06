@@ -11,7 +11,7 @@ namespace Sudoku_0._1
     {
         public double Dif { get; set; }
         public string con { get; set; }
-        public String[,] Contall;    
+        public string[,] Contall { get; internal set; }        
         double DoubleDifNaDruhou;
         int DifNaDruhou;
 
@@ -20,11 +20,10 @@ namespace Sudoku_0._1
         {
             gen.GetRandString();            
             con = gen.line;
-            Contall = new string[dif, dif];
+            Contall = new string[dif, dif];            
             Dif = dif;
             DoubleDifNaDruhou = Math.Pow(dif, 2);            
-        }
-
+        }        
         public void build()
         {
             DifNaDruhou = int.Parse(DoubleDifNaDruhou.ToString());
@@ -45,7 +44,7 @@ namespace Sudoku_0._1
                 {
                     Contall[x, y] = Polestr[(int)(x * Dif + y)];
                 }
-            }
+            }                        
             return;
         }
 

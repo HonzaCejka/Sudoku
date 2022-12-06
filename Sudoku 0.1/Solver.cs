@@ -24,8 +24,7 @@ namespace Sudoku_0._1
 
             convert();           
             if (solveBoard(board))
-            {
-                MessageBox.Show("Solved");
+            {                
                 done = true;
             }
             else
@@ -54,7 +53,7 @@ namespace Sudoku_0._1
                 }
             }
             return;
-        }
+        }        
         public void convert()
         {
             build();

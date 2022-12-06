@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sudoku_0._1"
         mc:Ignorable="d"
-        Title="Maker" Height="720" Width="1080">
+        Title="Maker" Height="720" Width="1080" Loaded="Window_Loaded">
     <Grid Name="BigGrid" Background="#FF333333" >
         <Grid.RowDefinitions>
             <RowDefinition Height="70*"/>

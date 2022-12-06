@@ -11,84 +11,35 @@ namespace Sudoku_0._1
 {
     internal class Generate
     {
-        private bool repete;
-        public int length;
-        public string result;
-        Random random = new Random();
-        List<int> Line = new List<int>();
-        public int[,] board;
-        
-        
-        public Generate()
-        {
-            board = new int[length,length];
-            result = "";        
-        }
-        public void GenLength(int Length)
-        {
-            for (int i = 1; i < Length + 1; i++)
-            {
-                Line.Add(i);
-            }
-        }
-        public void SetLength(int Length)
-        {           
-            length = Length;
-            GenLength(length);
-            board = new int[length,length];            
-        }
+        Solver solver;
+        Random random;
+        public int[,] GeneratedBoard { get; set; }
+        public int Dif { get; set; }
 
-        public void GenBoard1()
+        public Generate(int dif)
         {
-            for (int i = 0; i < length; i++)
-            {
-                for (int x = 0; x < length; x++)
-                {
-
-                    int y = random.Next(1, length + 1);
-                    repete = true;
-                    if (y != 0)
-                    {
-                        for (int z = 0; z < i; z++)
-                        {
-                            if (y == int.Parse(board[i-z,x].ToString()))
-                            {
-                                x--;
-                                repete = false;
-                            }
-                            else
-                            {
-                                repete = true;
-                            }
-                        }                        
-                    }
-                    if (repete == true)
-                    {
-                        if (Line.Contains(y))
-                        {
-                            board[i, x] = y;
-                            Line.Remove(y);
-
-                        }
-                        else
-                        {
-                            x--;
-                        }
-                    }
-                }
-                GenLength(length);
-                // čau grundzo jak se máš? ja se bojim programovani protoze umim hovno :( pomooooc
-            }
+            Dif = dif;
+            GeneratedBoard = new int[Dif, Dif];
         }
-        public void ShowBoard()
+        public void genRow()
         {
-            for (int i = 0; i < length; i++)
-            {
-                for (int x = 0; x < length; x++)
-                {
-                    result += board[i,x].ToString();
-                }
-            }
+
         }
+        public void genCol()
+        {
+
+        }
+        public bool CheckBox()
+        {
+            return false;
+        }
+        public bool solve()
+        {
+            return true;
+        }
+        public void remove()
+        {
+
+        }        
     }
 }

@@ -20,19 +20,19 @@ namespace Sudoku_0._1
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {        
         bool conti = false;        
         SolidColorBrush ColBrush = new SolidColorBrush(Color.FromArgb(255, 43, 91, 156));
-
+        money Money = new money(10);
         public MainWindow()
         {
-            InitializeComponent();
-
+            InitializeComponent();            
             if (conti == true)
             {
                 Continue.Cursor = Cursors.Hand;
                 Continue.Background = ColBrush;
             }
+            MoneyText.Text += Money.Money.ToString();
         }
         
         public void Build()
@@ -47,8 +47,8 @@ namespace Sudoku_0._1
 
         private void NewGame_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Game gamewin = new Game();
-            gamewin.Show();
+            Game game = new Game();            
+            game.Show();
             Close();
         }
 
@@ -57,6 +57,11 @@ namespace Sudoku_0._1
             Maker maker = new Maker();
             maker.Show();
             Close();
+        }
+
+        private void Quit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
