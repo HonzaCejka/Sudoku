@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FireSharp.Config;
+using FireSharp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +16,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp;
+using FireSharp.Response;
 
 namespace Sudoku_0._1
 {
@@ -61,7 +67,13 @@ namespace Sudoku_0._1
             BoardString = new string[Dif, Dif];            
             InitializeComponent();                       
             Build();                                 
-        }        
+        }
+        IFirebaseConfig fcon = new FirebaseConfig()
+        {
+            AuthSecret = "b3z7Ph5IFMgFPoDrTaaO7ASCqlQeJoJt9EN069pD",
+            BasePath = "https://sudoku-a3b97-default-rtdb.europe-west1.firebasedatabase.app/"
+        };
+        IFirebaseClient client;
         public void Build() 
         {
             solve = new Solver(Dif, cont.con);
@@ -454,6 +466,14 @@ namespace Sudoku_0._1
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                client = new FirebaseClient(fcon);
+            }
+            catch
+            {
+                MessageBox.Show("Fakt nevim proc to nefunguje");
+            }
             KeyDown += new KeyEventHandler(Game_KeyDown);
         }
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
