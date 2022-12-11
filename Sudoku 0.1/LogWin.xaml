@@ -1,0 +1,50 @@
+﻿<Window x:Class="Sudoku_0._1.LogWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sudoku_0._1"
+        mc:Ignorable="d"
+        Title="LogWin" Height="600" Width="500" ResizeMode="NoResize" Background="#FF333333">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="20" Grid.Row="2">Username</TextBlock>
+            <Border CornerRadius="15" Background="#FF2B5B9C" HorizontalAlignment="Center" Width="192" BorderThickness="2" BorderBrush="White" Grid.Row="3">
+                <TextBox x:Name="Username" Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Bottom" TextAlignment="Center" Text="" Background="{x:Null}" Margin="0,0,0,8" />
+            </Border>
+            <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="20" Grid.Row="4">Password</TextBlock>
+            <Border CornerRadius="15" Background="#FF2B5B9C" HorizontalAlignment="Center" Width="192" BorderThickness="2" BorderBrush="White" Grid.Row="5">
+                <TextBox x:Name="Password" Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Bottom" TextAlignment="Center" Text="" Background="{x:Null}" Margin="0,0,0,8" />
+            </Border>
+            <Border Cursor="Hand" Name="LogIn" CornerRadius="15" HorizontalAlignment="Center" BorderThickness="2" Width="192" Background="#FF2B5B9C" BorderBrush="White" MouseDown="Login_MouseDown" Grid.Row="7">
+                <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Log in" />
+            </Border>
+            <Border Cursor="Hand" Name="Register" CornerRadius="15" HorizontalAlignment="Center" BorderThickness="2" Width="192" Background="#FF2B5B9C" BorderBrush="White" MouseDown="Register_MouseDown" Grid.Row="9">
+                <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Register" />
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

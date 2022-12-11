@@ -24,6 +24,7 @@ namespace Sudoku_0._1
         bool conti = false;        
         SolidColorBrush ColBrush = new SolidColorBrush(Color.FromArgb(255, 43, 91, 156));
         money Money = new money(10);
+        LogWin loginwin = new LogWin();
         public MainWindow()
         {
             InitializeComponent();            
@@ -34,6 +35,7 @@ namespace Sudoku_0._1
             }
             //MoneyText.Text += Money.Money.ToString();
         }
+
         
         public void Build()
         {
@@ -62,6 +64,11 @@ namespace Sudoku_0._1
         private void Quit_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void Login_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            loginwin.Show();
         }
     }
 }
