@@ -45,7 +45,7 @@
                     <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Make Board" />
                 </Border>
                 <Border Cursor="Hand" x:Name="Login" CornerRadius="15" HorizontalAlignment="Center" BorderThickness="2" Height="58" Width="214" Background="#FF2B5B9C" BorderBrush="White" MouseDown="Login_MouseDown" Grid.Row="9">
-                    <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Log In"/>
+                    <TextBlock Name="LogText" Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Log In"/>
                 </Border>
                 <Border Cursor="Hand" x:Name="Quit" CornerRadius="15" HorizontalAlignment="Center" BorderThickness="2" Height="58" Width="214" Background="#FF2B5B9C" BorderBrush="White" MouseDown="Quit_MouseDown" Grid.Row="11">
                     <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Quit"/>

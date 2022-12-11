@@ -24,10 +24,13 @@ namespace Sudoku_0._1
         bool conti = false;        
         SolidColorBrush ColBrush = new SolidColorBrush(Color.FromArgb(255, 43, 91, 156));
         money Money = new money(10);
-        LogWin loginwin = new LogWin();
+        LogWin loginwin;
+        Profile prof;
         public MainWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            loginwin = new LogWin(this);
+            prof= new Profile();
             if (conti == true)
             {
                 Continue.Cursor = Cursors.Hand;
@@ -68,7 +71,25 @@ namespace Sudoku_0._1
 
         private void Login_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            loginwin.Show();
+            loginwin.Visibility = Visibility.Visible;          
+        }
+        private void Profile_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            prof.Visibility = Visibility.Visible;
+        }
+
+        public void CheckLog(bool log)
+        {
+            if (log == true)
+            {
+                LogText.Text = "Profile";
+                Login.MouseDown -= Login_MouseDown;
+                Login.MouseDown += Profile_MouseDown;
+            }
+            else
+            {
+
+            }
         }
     }
 }

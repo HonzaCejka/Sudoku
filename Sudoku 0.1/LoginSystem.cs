@@ -34,7 +34,7 @@ namespace Sudoku_0._1
             Username= username;
             Password= password;
 
-            if (username == client.Get($@"Users/{username}").ResultAs<string>())
+            if (username == client.Get($@"Users/{username}/Username").ResultAs<string>())
             {
                 if (password == client.Get($@"Users/{username}/Password").ResultAs<string>())
                 {
@@ -51,6 +51,13 @@ namespace Sudoku_0._1
                 MessageBox.Show("User is not in databse");
                 Logged = false;
             }
+        }
+        public void Register(string username,string password)
+        {
+            client.Set($@"/Users/{username}/Username",username);
+            client.Set($@"/Users/{username}/Password", password);
+            client.Set($@"/Users/{username}/Money", 10);
+            client.Set($@"/Users/{username}/BestTime", 10000);
         }
     }
 }

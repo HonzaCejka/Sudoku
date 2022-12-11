@@ -22,10 +22,12 @@ namespace Sudoku_0._1
         LoginSystem log = new LoginSystem();
         public string username { get; set; }
         public string password { get; set; }
-        public LogWin()
+        public bool Logged { get; set; }
+        MainWindow MainWin;
+        public LogWin(MainWindow win)
         {
             InitializeComponent();
-            
+            MainWin = win;
         }
 
         private void Login_MouseDown(object sender, MouseButtonEventArgs e)
@@ -36,11 +38,24 @@ namespace Sudoku_0._1
             if (log.Logged == true)
             {
                 MessageBox.Show($"you are logged as {username}");
+                Visibility= Visibility.Hidden;
+                Logged= true;
+                MainWin.CheckLog(Logged);
             }
         }
         private void Register_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
-        }       
+            username = Username.Text;
+            password = Password.Text;
+            log.Register(username,password);
+            log.LogIn(username,password);
+            if (log.Logged == true)
+            {
+                MessageBox.Show($"you are logged as {username}");
+                Visibility = Visibility.Hidden;
+                Logged = true;
+                MainWin.CheckLog(Logged);
+            }
+        }        
     }
 }
