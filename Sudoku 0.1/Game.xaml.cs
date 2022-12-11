@@ -61,7 +61,7 @@ namespace Sudoku_0._1
             cont = new Contnt(Dif);
             Pole = new TextBlock[Dif];
             PoleAll = new TextBlock[Dif, Dif];            
-            ctn = new String[Dif,Dif];
+            
             Lost = new lose(this,timer);                        
             ctnint = new int[Dif, Dif];
             BoardString = new string[Dif, Dif];            
@@ -76,7 +76,9 @@ namespace Sudoku_0._1
         IFirebaseClient client;
         public void Build() 
         {
-            solve = new Solver(Dif, cont.con);
+            ctn = new String[Dif, Dif];
+            cont.GetLine();
+            solve = new Solver(Dif, cont.con);           
             gen();            
             GridLines();
             mistakes();
@@ -88,7 +90,7 @@ namespace Sudoku_0._1
             Mistakes.Text = $"Mistakes: {Wrong}/{Maxmistakes}";
             GenContn();
             TimeText.Text = "Time: 00:00";
-            MoneyText.Text += $"{Money.Money}"; 
+            //MoneyText.Text = $"Money: {Money.Money}"; dodelat firebase login
             for (int y = 0; y < Dif; y++)
             {
                 for (int x = 0; x < Dif; x++)

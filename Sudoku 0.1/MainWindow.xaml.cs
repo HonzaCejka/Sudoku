@@ -32,7 +32,7 @@ namespace Sudoku_0._1
                 Continue.Cursor = Cursors.Hand;
                 Continue.Background = ColBrush;
             }
-            MoneyText.Text += Money.Money.ToString();
+            //MoneyText.Text += Money.Money.ToString();
         }
         
         public void Build()

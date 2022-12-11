@@ -18,12 +18,17 @@ namespace Sudoku_0._1
         GetTxt gen = new GetTxt();
         public Contnt(int dif)
         {
-            gen.GetRandString();            
-            con = gen.line;
+            
+            GetLine();
             Contall = new string[dif, dif];            
             Dif = dif;
             DoubleDifNaDruhou = Math.Pow(dif, 2);            
         }        
+        public void GetLine()
+        {
+            gen.GetRandString();
+            con = gen.line;
+        }
         public void build()
         {
             DifNaDruhou = int.Parse(DoubleDifNaDruhou.ToString());
