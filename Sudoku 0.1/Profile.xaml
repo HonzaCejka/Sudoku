@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sudoku_0._1"
         mc:Ignorable="d"
-        Title="Profile" Height="450" Width="800" Closing="Window_Closing">
+        Title="Profile" Height="500" Width="400" Closing="Window_Closing" ResizeMode="NoResize" Background="#FF333333">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Name="user" TextAlignment="Center" Foreground="#fff" FontSize="48" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Johny" VerticalAlignment="Center" Height="73" Width="286" Grid.Row="1"/>
+            <TextBlock Name="BestTime" Foreground="#fff" FontSize="24" TextAlignment="Center" Grid.Row="3" Text=""></TextBlock>
+            <TextBlock Name="Money" Foreground="#fff" FontSize="24" TextAlignment="Center" Grid.Row="5" Text=""></TextBlock>
+            <Border Cursor="Hand" Name="Log_out" CornerRadius="15" HorizontalAlignment="Center" BorderThickness="2" Width="192" Background="#FF2B5B9C" BorderBrush="White" MouseDown="Logout_MouseDown" Grid.Row="7">
+                <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Log out" />
+            </Border>
+        </Grid>
     </Grid>
 </Window>

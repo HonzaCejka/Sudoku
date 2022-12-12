@@ -38,7 +38,7 @@ namespace Sudoku_0._1
             }
             //MoneyText.Text += Money.Money.ToString();
         }
-
+        
         
         public void Build()
         {

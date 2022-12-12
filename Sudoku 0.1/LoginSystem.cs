@@ -38,6 +38,8 @@ namespace Sudoku_0._1
             {
                 if (password == client.Get($@"Users/{username}/Password").ResultAs<string>())
                 {
+                    Money = client.Get($@"Users/{username}/Money").ResultAs<int>();
+                    BestTime = client.Get($@"Users/{username}/BestTime").ResultAs<int>();
                     Logged = true;                    
                 }
                 else
@@ -58,6 +60,26 @@ namespace Sudoku_0._1
             client.Set($@"/Users/{username}/Password", password);
             client.Set($@"/Users/{username}/Money", 10);
             client.Set($@"/Users/{username}/BestTime", 10000);
+        }
+
+        public void Win(int time)
+        {
+            if (time <= 600)
+            {
+                client.Set($@"/Users/{Username}/Money", Money += 100);
+            }
+            else if (time <= 1200)
+            {
+                client.Set($@"/Users/{Username}/Money", Money += 50);
+            }
+            else
+            {
+                client.Set($@"/Users/{Username}/Money", Money += 10);
+            }
+            if (time < BestTime)
+            {
+                BestTime = time;
+            }
         }
     }
 }

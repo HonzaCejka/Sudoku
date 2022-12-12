@@ -28,5 +28,17 @@ namespace Sudoku_0._1
         {
             Visibility = Visibility.Collapsed;
         }
+        
+        public void build(string username,int besttime,int money)
+        {
+            user.Text = username;
+            BestTime.Text = "Best time: " + "\n" + besttime;
+            Money.Text = "Money: " + "\n" + money;
+        }
+
+        private void Logout_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
