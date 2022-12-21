@@ -30,32 +30,32 @@ namespace Sudoku_0._1
             MainWin = win;
         }
 
-        private void Login_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            username = Username.Text;
-            password = Password.Text;
-            log.LogIn(username,password);
-            if (log.Logged == true)
-            {
-                MessageBox.Show($"you are logged as {username}");
-                Visibility= Visibility.Hidden;
-                Logged= true;
-                MainWin.CheckLog(Logged);
-            }
-        }
-        private void Register_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            username = Username.Text;
-            password = Password.Text;
-            log.Register(username,password);
-            log.LogIn(username,password);
-            if (log.Logged == true)
-            {
-                MessageBox.Show($"you are logged as {username}");
-                Visibility = Visibility.Hidden;
-                Logged = true;
-                MainWin.CheckLog(Logged);
-            }
-        }        
+        //private void Login_MouseDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    username = Username.Text;
+        //    password = Password.Text;
+        //    log.LogIn(username,password);
+        //    if (log.Logged == true)
+        //    {
+        //        MessageBox.Show($"you are logged as {username}");
+        //        Visibility= Visibility.Hidden;
+        //        Logged= true;
+        //        MainWin.CheckLog(Logged);
+        //    }
+        //}
+        //private void Register_MouseDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    username = Username.Text;
+        //    password = Password.Text;
+        //    log.Register(username,password);
+        //    log.LogIn(username,password);
+        //    if (log.Logged == true)
+        //    {
+        //        MessageBox.Show($"you are logged as {username}");
+        //        Visibility = Visibility.Hidden;
+        //        Logged = true;
+        //        MainWin.CheckLog(Logged);
+        //    }
+        //}        
     }
 }

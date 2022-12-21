@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FireSharp;
+using FireSharp.Config;
+using FireSharp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.IO;
@@ -29,6 +32,7 @@ namespace Sudoku_0._1
         public Rectangle border;
         int[,] board;
         string BoardString;
+        public bool conti =false;
         public static System.Windows.Media.SolidColorBrush Transparent { get; }
         SolidColorBrush ColBrush = new SolidColorBrush(Color.FromArgb(255, 43, 91, 156));
         Solver solver;
@@ -36,17 +40,22 @@ namespace Sudoku_0._1
         
         
         public Maker()
-        {
-            
+        {            
             Pole = new TextBlock[Dif];
             PoleAll = new TextBlock[Dif, Dif];
             board = new int[Dif, Dif];
             InitializeComponent();                       
             gen();            
-            picked();            
+            picked();  
+            client = new FirebaseClient(config);
         }
 
-
+        IFirebaseConfig config = new FirebaseConfig()
+        {
+            AuthSecret = "b3z7Ph5IFMgFPoDrTaaO7ASCqlQeJoJt9EN069pD",
+            BasePath = "https://sudoku-a3b97-default-rtdb.europe-west1.firebasedatabase.app/"
+        };
+        IFirebaseClient client;
         public void gen()
         {
             for (int y = 0; y < Dif; y++)
@@ -179,7 +188,7 @@ namespace Sudoku_0._1
             if (solver.done == true)
             {
                 
-                ExampleAsync(BoardString);
+                Add(BoardString);
             }
             else
             {
@@ -200,10 +209,11 @@ namespace Sudoku_0._1
                 }
             }
         }
-        public static async Task ExampleAsync(string EndString)
-        {            
-                using StreamWriter file = new("Strings.txt", append: true);
-                await file.WriteLineAsync(EndString);                            
+        public void Add(string EndString)
+        {
+            int index = client.Get(@$"/Content/count").ResultAs<int>();
+            client.Set($@"/Content/count",index+1);
+            client.Set($@"/Content/C{index+1}", EndString);                   
         }
         private void Maker_KeyDown(object sender, KeyEventArgs e)
         {
@@ -295,6 +305,25 @@ namespace Sudoku_0._1
         {
             KeyDown += new KeyEventHandler(Maker_KeyDown);
         }
-      
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (conti == true)
+            {
+
+            }
+            else
+            {
+                Application.Current.Shutdown();
+            }
+        }
+
+        private void Exit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            conti = true;
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();            
+        }
     }
 }

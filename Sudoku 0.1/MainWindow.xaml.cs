@@ -26,16 +26,17 @@ namespace Sudoku_0._1
         money Money = new money(10);
         LogWin loginwin;
         Profile prof;
+        
         public MainWindow()
         {
             InitializeComponent();
             loginwin = new LogWin(this);
             prof= new Profile();
-            if (conti == true)
-            {
-                Continue.Cursor = Cursors.Hand;
-                Continue.Background = ColBrush;
-            }
+            //if (conti == true)
+            //{
+            //    Continue.Cursor = Cursors.Hand;
+            //    Continue.Background = ColBrush;
+            //}
             //MoneyText.Text += Money.Money.ToString();
         }
         
@@ -52,6 +53,7 @@ namespace Sudoku_0._1
 
         private void NewGame_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            conti = true;
             Game game = new Game();            
             game.Show();
             Close();
@@ -59,6 +61,7 @@ namespace Sudoku_0._1
 
         private void MakeBoard_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            conti = true;
             Maker maker = new Maker();
             maker.Show();
             Close();
@@ -75,21 +78,33 @@ namespace Sudoku_0._1
         }
         private void Profile_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            prof.Visibility = Visibility.Visible;
+            prof.Show();
         }
 
-        public void CheckLog(bool log)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (log == true)
+            if (conti == true)
             {
-                LogText.Text = "Profile";
-                Login.MouseDown -= Login_MouseDown;
-                Login.MouseDown += Profile_MouseDown;
+
             }
             else
             {
-
-            }
+                Application.Current.Shutdown();
+            }   
         }
+
+        //public void CheckLog(bool log)
+        //{
+        //    if (log == true)
+        //    {
+        //        LogText.Text = "Profile";
+        //        Login.MouseDown -= Login_MouseDown;
+        //        Login.MouseDown += Profile_MouseDown;
+        //    }
+        //    else
+        //    {
+
+        //    }
+        //}
     }
 }

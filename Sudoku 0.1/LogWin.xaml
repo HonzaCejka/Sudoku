@@ -39,10 +39,10 @@
             <Border CornerRadius="15" Background="#FF2B5B9C" HorizontalAlignment="Center" Width="192" BorderThickness="2" BorderBrush="White" Grid.Row="5">
                 <TextBox x:Name="Password" Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Bottom" TextAlignment="Center" Text="" Background="{x:Null}" Margin="0,0,0,8" />
             </Border>
-            <Border Cursor="Hand" Name="LogIn" CornerRadius="15" HorizontalAlignment="Center" BorderThickness="2" Width="192" Background="#FF2B5B9C" BorderBrush="White" MouseDown="Login_MouseDown" Grid.Row="7">
+            <Border Cursor="Hand" Name="LogIn" CornerRadius="15" HorizontalAlignment="Center" BorderThickness="2" Width="192" Background="#FF2B5B9C" BorderBrush="White"  Grid.Row="7">
                 <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Log in" />
             </Border>
-            <Border Cursor="Hand" Name="Register" CornerRadius="15" HorizontalAlignment="Center" BorderThickness="2" Width="192" Background="#FF2B5B9C" BorderBrush="White" MouseDown="Register_MouseDown" Grid.Row="9">
+            <Border Cursor="Hand" Name="Register" CornerRadius="15" HorizontalAlignment="Center" BorderThickness="2" Width="192" Background="#FF2B5B9C" BorderBrush="White" Grid.Row="9">
                 <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Register" />
             </Border>
         </Grid>

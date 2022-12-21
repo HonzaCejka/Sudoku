@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sudoku_0._1"
         mc:Ignorable="d"
-        Title="Maker" Height="720" Width="1080" Loaded="Window_Loaded">
+        Title="Maker" Height="720" Width="1080" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid Name="BigGrid" Background="#FF333333" >
         <Grid.RowDefinitions>
             <RowDefinition Height="70*"/>
@@ -67,9 +67,22 @@
             <TextBlock Name="num9" FontSize="35" Grid.Column="8" TextAlignment="Center" TextWrapping="Wrap" Text="9" Foreground="White" Margin="10,0,14,0" Tag="9" MouseDown="num1_MouseDown"/>
             <Image Name="erase" Grid.Column="9" HorizontalAlignment="Center" Height="58" VerticalAlignment="Center" Width="65" Source="/erase.png" MouseDown="erase_MouseDown"/>
         </Grid>
-        <Border Cursor="Hand" x:Name="Make" CornerRadius="15" HorizontalAlignment="Center" Margin="0,5,0,11" BorderThickness="2" Width="214" Background="#FF2B5B9C" BorderBrush="White" MouseDown="Make_MouseDown" Grid.Column="1" Grid.Row="4">
-            <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Make Board" />
-        </Border>
+        <Grid Grid.Column="1" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Border Cursor="Hand" x:Name="Make" CornerRadius="15" HorizontalAlignment="Center" BorderThickness="2" Width="204" Background="#FF2B5B9C" BorderBrush="White" MouseDown="Make_MouseDown" Grid.Column="3" Margin="0,2,0,2">
+                <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Make Board" />
+            </Border>
+            <Border Cursor="Hand" x:Name="exit" CornerRadius="15" HorizontalAlignment="Center" BorderThickness="2" Width="204" Background="#FF2B5B9C" BorderBrush="White" MouseDown="Exit_MouseDown" Grid.Column="1" Margin="0,5,0,5">
+                <TextBlock Foreground="White" TextWrapping="Wrap" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" TextAlignment="Center" Text="Exit" />
+            </Border>
+        </Grid>
+
 
     </Grid>
 </Window>
